@@ -206,6 +206,19 @@
       transform: translateY(1px);
     }
 
+    .btn--secondary {
+      background-color: var(--color-white);
+      color: var(--color-navy);
+      border: 3px solid var(--color-navy);
+      box-shadow: 0 2px 8px rgba(15, 46, 93, 0.15);
+    }
+
+    .btn--secondary:active {
+      background-color: var(--color-gray-light);
+      transform: translateY(1px);
+      box-shadow: 0 1px 4px rgba(15, 46, 93, 0.2);
+    }
+
     .btn:focus-visible {
       outline: 4px solid rgba(230, 70, 59, 0.6);
       outline-offset: 3px;
@@ -579,6 +592,14 @@
         background-color: rgba(255, 255, 255, 0.1);
         transform: translateY(-2px);
       }
+
+      .btn--secondary:hover {
+        background-color: var(--color-gray-light);
+        border-color: var(--color-red);
+        color: var(--color-red);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(15, 46, 93, 0.25);
+      }
     }
 
     /* 小画面スマホ */
@@ -696,7 +717,7 @@
         <div class="step__number">2</div>
         <h3 class="step__title">公式LINEでの最終確認</h3>
         <p class="step__description">フォーム送信が完了しましたら、下のボタンで「体験申込」という文字をコピーしてください。</p>
-        <button type="button" class="btn btn--outline" id="copyBtn" aria-label="体験申込という文字をクリップボードにコピー">「体験申込」をコピー</button>
+        <button type="button" class="btn btn--secondary" id="copyBtn" aria-label="体験申込という文字をクリップボードにコピー">「体験申込」をコピー</button>
         <p class="step__description" style="margin-top: var(--spacing-md);">コピーした文字を公式LINEのトークに貼り付けて送信してください。LINEでの確認をもって、お申し込み手続き完了となります。</p>
         <a href="https://line.me/R/ti/p/XXXXXXXX" class="btn btn--primary" target="_blank" rel="noopener" aria-label="公式LINEで体験申込を送信する（新しいタブで開きます）">公式LINEで体験申込を送信する</a>
         <p class="step__note">※返信はコーチが順次対応します。混み合う場合はお時間をいただくことがあります。</p>
