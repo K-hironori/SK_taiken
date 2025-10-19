@@ -225,20 +225,39 @@
 
     /* ========== Hero Section ========== */
     .hero {
-      background-color: var(--color-navy);
+      background-image: linear-gradient(rgba(15, 46, 93, 0.75), rgba(15, 46, 93, 0.85)), url('6A7AD99C-1809-4AD1-BC1A-51C8BF3F7D75_1_105_c.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: var(--color-white);
-      padding: var(--spacing-xl) 0 var(--spacing-2xl) 0;
+      padding: var(--spacing-2xl) 0 var(--spacing-2xl) 0;
       text-align: center;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
     }
 
-    .hero__image {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      aspect-ratio: 2 / 1;
-      object-fit: cover;
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 0%, rgba(15, 46, 93, 0.3) 100%);
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__content {
+      background-color: rgba(15, 46, 93, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: var(--spacing-lg);
       border-radius: var(--border-radius);
-      margin-bottom: var(--spacing-md);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     .hero__lead {
@@ -574,15 +593,11 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <img src="6A7AD99C-1809-4AD1-BC1A-51C8BF3F7D75_1_105_c.jpeg"
-           alt="一色SKクラブ野球体験の様子"
-           class="hero__image"
-           width="800"
-           height="400"
-           fetchpriority="high">
-      <h1>一色SKクラブ｜体験申込ページ</h1>
-      <p class="hero__lead">野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。</p>
-      <a href="https://example.com/form" class="btn btn--primary" aria-label="体験お申し込みフォームへ進む">体験お申し込みフォーム</a>
+      <div class="hero__content">
+        <h1>一色SKクラブ｜体験申込ページ</h1>
+        <p class="hero__lead">野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。</p>
+        <a href="https://example.com/form" class="btn btn--primary" aria-label="体験お申し込みフォームへ進む">体験お申し込みフォーム</a>
+      </div>
     </div>
   </section>
 
