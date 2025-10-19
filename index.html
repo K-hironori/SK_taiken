@@ -448,81 +448,6 @@
     }
 
     /* ==========================================================================
-       FAQセクション
-       ========================================================================== */
-    .faq {
-      margin-bottom: var(--spacing-md);
-    }
-
-    .faq__item {
-      border-bottom: 1px solid var(--color-gray-border);
-    }
-
-    .faq__question {
-      width: 100%;
-      padding: var(--spacing-md) var(--spacing-xs);
-      background: none;
-      border: none;
-      text-align: left;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--color-navy);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      transition: color var(--transition);
-      touch-action: manipulation;
-      min-height: 56px;
-    }
-
-    .faq__question span:first-child {
-      flex: 1;
-      line-height: 1.6;
-    }
-
-    .faq__question:active {
-      color: var(--color-red);
-    }
-
-    .faq__question:focus-visible {
-      outline: 3px solid var(--color-red);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-
-    .faq__icon {
-      flex-shrink: 0;
-      font-size: 18px;
-      transition: transform var(--transition);
-      margin-top: 2px;
-    }
-
-    .faq__question[aria-expanded="true"] .faq__icon {
-      transform: rotate(180deg);
-    }
-
-    .faq__answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height var(--transition);
-    }
-
-    .faq__answer--open {
-      max-height: 500px;
-      padding-bottom: var(--spacing-md);
-    }
-
-    .faq__answer p {
-      margin: 0;
-      padding: 0 var(--spacing-xs);
-      color: #555;
-      line-height: 1.75;
-      font-size: 15px;
-    }
-
-    /* ==========================================================================
        アクセスセクション
        ========================================================================== */
     .access__map {
@@ -653,10 +578,6 @@
       .btn--outline:hover {
         background-color: rgba(255, 255, 255, 0.1);
         transform: translateY(-2px);
-      }
-
-      .faq__question:hover {
-        color: var(--color-red);
       }
     }
 
@@ -799,75 +720,6 @@
     </div>
   </section>
 
-  <section class="section section--gray">
-    <div class="container">
-      <h2>よくあるご質問</h2>
-      <div class="faq">
-
-        <div class="faq__item">
-          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq1">
-            <span>未経験でも参加できますか？</span>
-            <span class="faq__icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq__answer" id="faq1">
-            <p>はい、もちろん大丈夫です。当クラブは中学軟式野球クラブですが、初心者のお子さまでも楽しく参加いただけるよう、コーチが基礎から丁寧に指導いたします。</p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq2">
-            <span>体験は何回まで参加できますか？</span>
-            <span class="faq__icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq__answer" id="faq2">
-            <p>体験は原則1回までとさせていただいております。ご入会を検討される場合は、公式LINEまたは現地でコーチにお声がけください。</p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq5">
-            <span>小学生でも入れますか？</span>
-            <span class="faq__icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq__answer" id="faq5">
-            <p>当クラブは中学軟式野球クラブのため、対象は中学生となります。小学6年生の体験参加については、時期によって可能な場合もございますので、お気軽にご相談ください。</p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq6">
-            <span>会費以外に必要な費用はありますか？</span>
-            <span class="faq__icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq__answer" id="faq6">
-            <p>ユニフォーム代のほか、遠征や合宿などに伴う実費が別途必要になる場合があります。詳細はお問い合わせください。</p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq3">
-            <span>保護者の同伴は必要ですか？</span>
-            <span class="faq__icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq__answer" id="faq3">
-            <p>安全管理のため、体験時は保護者の方の同伴をお願いしております。見学スペースもご用意しておりますので、ぜひお子さまの様子をご覧ください。</p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq4">
-            <span>雨天時の連絡はどうなりますか？</span>
-            <span class="faq__icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq__answer" id="faq4">
-            <p>雨天中止や練習場所変更の場合は、公式LINEにて当日朝にご連絡いたします。事前に友だち追加をお願いいたします。</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container">
       <h2>アクセス</h2>
@@ -966,44 +818,6 @@
       }, 3000);
     }
 
-    // ==========================================================================
-    // FAQアコーディオン
-    // ==========================================================================
-    const faqQuestions = document.querySelectorAll('.faq__question');
-
-    faqQuestions.forEach(question => {
-      // クリックイベント
-      question.addEventListener('click', () => {
-        toggleFAQ(question);
-      });
-
-      // キーボード操作（Enter / Space）
-      question.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleFAQ(question);
-        }
-      });
-    });
-
-    /**
-     * FAQの開閉を切り替え
-     * @param {HTMLElement} question - 質問ボタン要素
-     */
-    function toggleFAQ(question) {
-      const isExpanded = question.getAttribute('aria-expanded') === 'true';
-      const answerId = question.getAttribute('aria-controls');
-      const answer = document.getElementById(answerId);
-
-      if (!answer) return;
-      question.setAttribute('aria-expanded', !isExpanded);
-
-      if (!isExpanded) {
-        answer.classList.add('faq__answer--open');
-      } else {
-        answer.classList.remove('faq__answer--open');
-      }
-    }
   </script>
 
 </body>
