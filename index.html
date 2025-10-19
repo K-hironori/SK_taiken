@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一色SKクラブの野球体験申込ページ。初心者でも安心して参加できる無料体験を実施中。まずはお気軽にお申し込みください。">
+  <meta name="keywords" content="一色SKクラブ,野球,体験申込,少年野球,初心者歓迎,愛知県">
+  <meta name="robots" content="index, follow">
+
+  <!-- OGP -->
+  <meta property="og:title" content="一色SKクラブ｜体験申込">
+  <meta property="og:description" content="野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="一色SKクラブ｜体験申込">
+  <meta name="twitter:description" content="野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。">
+  <meta name="twitter:image" content="https://example.com/og-image.jpg">
+
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+
+  <title>一色SKクラブ｜体験申込</title>
+
+  <!-- 構造化データ (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "一色SKクラブ",
+    "description": "愛知県の少年野球クラブ。初心者から丁寧に指導します。",
+    "url": "https://example.com/",
+    "representative": {
+      "@type": "Person",
+      "name": "伴 千寿樹"
+    }
+  }
+  </script>
+
+  <style>
+    /* ==========================================
+       差し替えポイント（変数）
+       - FORM_URL: 体験お申し込みフォームURL
+       - LINE_URL: 公式LINE友だち追加 or トーク起動URL
+       - MAP_EMBED: Google Map埋め込みURL
+       - REPRESENTATIVE: 代表者名
+       - COPYRIGHT_YEAR: 著作権表示年
+       ========================================== */
+
+    :root {
+      --color-navy: #0F2E5D;
+      --color-red: #E6463B;
+      --color-white: #FFFFFF;
+      --color-gray-light: #F5F5F5;
+      --color-gray-border: #E0E0E0;
+      --spacing-xs: 8px;
+      --spacing-sm: 20px;
+      --spacing-md: 28px;
+      --spacing-lg: 40px;
+      --spacing-xl: 56px;
+      --spacing-2xl: 72px;
+      --border-radius: 12px;
+      --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.06);
+      --font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+      --line-height-base: 1.75;
+      --transition: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      font-size: 16px;
+      line-height: var(--line-height-base);
+      color: var(--color-navy);
+      background-color: var(--color-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: rgba(230, 70, 59, 0.2);
+      overflow-x: hidden;
+    }
+
+    /* ========== Typography ========== */
+    h1 {
+      font-size: clamp(24px, 7vw, 32px);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: var(--spacing-sm);
+      word-break: break-word;
+    }
+
+    h2 {
+      font-size: clamp(22px, 6vw, 26px);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: var(--spacing-md);
+      word-break: break-word;
+    }
+
+    h3 {
+      font-size: clamp(18px, 5vw, 20px);
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: var(--spacing-sm);
+      word-break: break-word;
+    }
+
+    p {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    /* ========== Layout ========== */
+    .container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 var(--spacing-sm);
+    }
+
+    @media (min-width: 430px) {
+      .container {
+        max-width: 430px;
+      }
+    }
+
+    .section {
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .section--navy {
+      background-color: var(--color-navy);
+      color: var(--color-white);
+    }
+
+    .section--gray {
+      background-color: var(--color-gray-light);
+    }
+
+    /* ========== Components ========== */
+
+    /* Card */
+    .card {
+      background: var(--color-white);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-md);
+      box-shadow: var(--shadow-light);
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 20px var(--spacing-md);
+      font-size: 17px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: all var(--transition);
+      line-height: 1.5;
+      min-height: 64px;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .btn--primary {
+      background-color: var(--color-red);
+      color: var(--color-white);
+      box-shadow: 0 2px 8px rgba(230, 70, 59, 0.2);
+    }
+
+    .btn--primary:active {
+      background-color: #c7332a;
+      transform: translateY(1px);
+      box-shadow: 0 1px 4px rgba(230, 70, 59, 0.3);
+    }
+
+    @media (hover: hover) {
+      .btn--primary:hover {
+        background-color: #d13a2f;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(230, 70, 59, 0.35);
+      }
+    }
+
+    .btn--outline {
+      background-color: transparent;
+      color: var(--color-white);
+      border: 3px solid var(--color-white);
+    }
+
+    .btn--outline:active {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(1px);
+    }
+
+    @media (hover: hover) {
+      .btn--outline:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+    }
+
+    .btn:focus-visible {
+      outline: 4px solid rgba(230, 70, 59, 0.6);
+      outline-offset: 3px;
+    }
+
+    .btn + .btn {
+      margin-top: var(--spacing-sm);
+    }
+
+    /* ========== Hero Section ========== */
+    .hero {
+      background-color: var(--color-navy);
+      color: var(--color-white);
+      padding: var(--spacing-xl) 0 var(--spacing-2xl) 0;
+      text-align: center;
+    }
+
+    .hero__image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 2 / 1;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .hero__lead {
+      font-size: 16px;
+      margin-bottom: var(--spacing-lg);
+      opacity: 0.96;
+      line-height: 1.8;
+      padding: 0 var(--spacing-xs);
+    }
+
+    /* ========== Steps Section ========== */
+    .steps {
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .step {
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step__number {
+      display: inline-block;
+      background-color: var(--color-red);
+      color: var(--color-white);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 48px;
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: var(--spacing-sm);
+      box-shadow: 0 2px 8px rgba(230, 70, 59, 0.25);
+    }
+
+    .step__title {
+      font-size: clamp(18px, 5vw, 20px);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.5;
+    }
+
+    .step__description {
+      margin-bottom: var(--spacing-md);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .step__note {
+      font-size: 13px;
+      color: #666;
+      margin-top: var(--spacing-sm);
+      line-height: 1.6;
+      padding: var(--spacing-sm);
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    /* ========== Overview Section ========== */
+    .overview__table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .overview__table th,
+    .overview__table td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-gray-border);
+      font-size: 15px;
+    }
+
+    .overview__table th {
+      background-color: var(--color-navy);
+      color: var(--color-white);
+      font-weight: 700;
+      width: 32%;
+      vertical-align: top;
+    }
+
+    .overview__table td {
+      background-color: var(--color-white);
+      line-height: 1.7;
+    }
+
+    .overview__note {
+      font-size: 14px;
+      color: #666;
+      margin-top: var(--spacing-sm);
+    }
+
+    /* ========== Coach Section ========== */
+    .coach-card {
+      text-align: center;
+    }
+
+    .coach-card__image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto var(--spacing-sm);
+      display: block;
+    }
+
+    .coach-card__name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .coach-card__bio {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* ========== FAQ Section ========== */
+    .faq {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .faq__item {
+      border-bottom: 1px solid var(--color-gray-border);
+    }
+
+    .faq__question {
+      width: 100%;
+      padding: var(--spacing-md) var(--spacing-xs);
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      transition: color var(--transition);
+      touch-action: manipulation;
+      min-height: 56px;
+    }
+
+    .faq__question span:first-child {
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .faq__question:active {
+      color: var(--color-red);
+    }
+
+    @media (hover: hover) {
+      .faq__question:hover {
+        color: var(--color-red);
+      }
+    }
+
+    .faq__question:focus-visible {
+      outline: 3px solid var(--color-red);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .faq__icon {
+      flex-shrink: 0;
+      font-size: 18px;
+      transition: transform var(--transition);
+      margin-top: 2px;
+    }
+
+    .faq__question[aria-expanded="true"] .faq__icon {
+      transform: rotate(180deg);
+    }
+
+    .faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition);
+    }
+
+    .faq__answer--open {
+      max-height: 500px;
+      padding-bottom: var(--spacing-md);
+    }
+
+    .faq__answer p {
+      margin: 0;
+      padding: 0 var(--spacing-xs);
+      color: #555;
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* ========== Access Section ========== */
+    .access__map {
+      width: 100%;
+      height: 320px;
+      min-height: 280px;
+      border: 0;
+      border-radius: var(--border-radius);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .access__info {
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .access__info p {
+      margin-bottom: 12px;
+    }
+
+    /* ========== CTA Section ========== */
+    .cta {
+      text-align: center;
+    }
+
+    .cta__title {
+      margin-bottom: var(--spacing-lg);
+    }
+
+    /* ========== Footer ========== */
+    .footer {
+      background-color: var(--color-navy);
+      color: var(--color-white);
+      padding: var(--spacing-lg) 0;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer__links {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .footer__link {
+      color: var(--color-white);
+      text-decoration: underline;
+      transition: opacity var(--transition);
+    }
+
+    .footer__link:hover,
+    .footer__link:focus {
+      opacity: 0.8;
+    }
+
+    .footer__copyright {
+      margin-top: var(--spacing-sm);
+      opacity: 0.9;
+    }
+
+    /* ========== Toast Notification ========== */
+    .toast {
+      position: fixed;
+      bottom: var(--spacing-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--color-navy);
+      color: var(--color-white);
+      padding: 18px var(--spacing-md);
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+      max-width: calc(100% - 40px);
+      min-width: 280px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .toast--show {
+      opacity: 1;
+    }
+
+    .toast--success {
+      background-color: #2e7d32;
+    }
+
+    .toast--error {
+      background-color: var(--color-red);
+    }
+
+    /* ========== Responsive (larger screens) ========== */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 600px;
+      }
+
+      .btn {
+        max-width: 420px;
+      }
+
+      .hero__image {
+        aspect-ratio: 2.5 / 1;
+      }
+    }
+
+    /* ========== Small screens optimization ========== */
+    @media (max-width: 374px) {
+      :root {
+        --spacing-sm: 16px;
+        --spacing-md: 20px;
+      }
+
+      .btn {
+        font-size: 15px;
+        padding: 18px var(--spacing-sm);
+      }
+
+      .overview__table th,
+      .overview__table td {
+        padding: 12px 10px;
+        font-size: 14px;
+      }
+
+      .overview__table th {
+        width: 35%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Crect fill='%230F2E5D' width='800' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%23ffffff'%3E野球体験イメージ%3C/text%3E%3C/svg%3E"
+           alt="一色SKクラブ野球体験の様子"
+           class="hero__image"
+           width="800"
+           height="400"
+           fetchpriority="high">
+      <h1>一色SKクラブ｜体験申込ページ</h1>
+      <p class="hero__lead">野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。</p>
+      <a href="https://example.com/form" class="btn btn--primary" aria-label="体験お申し込みフォームへ進む">体験お申し込みフォーム</a>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section class="steps">
+    <div class="container">
+      <div class="step">
+        <div class="step__number">1</div>
+        <h3 class="step__title">お申し込み情報の入力</h3>
+        <p class="step__description">まずは、下の「体験お申し込みフォーム」から必要事項をご入力ください。</p>
+        <a href="https://example.com/form" class="btn btn--primary" aria-label="体験お申し込みフォームへ進む">体験お申し込みフォーム</a>
+      </div>
+
+      <div class="step">
+        <div class="step__number">2</div>
+        <h3 class="step__title">公式LINEでの最終確認</h3>
+        <p class="step__description">フォーム送信が完了しましたら、下のボタンで「体験申込」という文字をコピーし、公式LINEのトークに貼り付けて送信してください。LINEでの確認をもって、お申し込み手続き完了となります。</p>
+        <button type="button" class="btn btn--primary" id="copyBtn" aria-label="体験申込という文字をクリップボードにコピー">「体験申込」をコピー</button>
+        <a href="https://line.me/R/ti/p/XXXXXXXX" class="btn btn--outline" target="_blank" rel="noopener" aria-label="公式LINEで体験申込を送信する（新しいタブで開きます）">公式LINEで体験申込を送信する</a>
+        <p class="step__note">※返信はコーチが順次対応します。混み合う場合はお時間をいただくことがあります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="section section--gray">
+    <div class="container">
+      <h2>参加概要</h2>
+      <div class="card">
+        <table class="overview__table">
+          <tbody>
+            <tr>
+              <th>対象</th>
+              <td>小学1年～中学3年（初心者歓迎）<!-- ここを実数に変更 --></td>
+            </tr>
+            <tr>
+              <th>実施日</th>
+              <td>毎週土曜・日曜（祝日除く）<!-- ここを実数に変更 --></td>
+            </tr>
+            <tr>
+              <th>時間</th>
+              <td>9:00〜12:00<!-- ここを実数に変更 --></td>
+            </tr>
+            <tr>
+              <th>場所</th>
+              <td>一色グラウンド（愛知県西尾市一色町）<!-- ここを実数に変更 --></td>
+            </tr>
+            <tr>
+              <th>持ち物</th>
+              <td>運動できる服装、飲み物、帽子、タオル</td>
+            </tr>
+            <tr>
+              <th>体験費</th>
+              <td>無料</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="overview__note">※日程や場所は天候により変更になる場合があります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coach Section -->
+  <section class="section">
+    <div class="container">
+      <h2>コーチ紹介</h2>
+      <div class="card coach-card">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ccircle cx='60' cy='60' r='60' fill='%23E0E0E0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23666'%3E代表写真%3C/text%3E%3C/svg%3E"
+             alt="代表 伴 千寿樹の写真"
+             class="coach-card__image"
+             width="120"
+             height="120"
+             loading="lazy">
+        <h3 class="coach-card__name">代表：伴 千寿樹</h3>
+        <p class="coach-card__bio">安全第一を心がけ、野球の基礎から丁寧に指導します。お子さまが楽しく、のびのびとプレーできる環境づくりを大切にしています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section section--gray">
+    <div class="container">
+      <h2>よくあるご質問</h2>
+      <div class="faq">
+        <div class="faq__item">
+          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq1">
+            <span>未経験でも参加できますか？</span>
+            <span class="faq__icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq__answer" id="faq1">
+            <p>はい、もちろん大丈夫です。初心者のお子さまでも楽しく参加いただけるよう、コーチが基礎から丁寧に指導いたします。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq2">
+            <span>体験は何回まで参加できますか？</span>
+            <span class="faq__icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq__answer" id="faq2">
+            <p>体験は原則1回までとさせていただいております。ご入会を検討される場合は、公式LINEまたは現地でコーチにお声がけください。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq3">
+            <span>保護者の同伴は必要ですか？</span>
+            <span class="faq__icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq__answer" id="faq3">
+            <p>安全管理のため、体験時は保護者の方の同伴をお願いしております。見学スペースもご用意しておりますので、ぜひお子さまの様子をご覧ください。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq4">
+            <span>雨天時の連絡はどうなりますか？</span>
+            <span class="faq__icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq__answer" id="faq4">
+            <p>雨天中止の場合は、公式LINEにて当日朝にご連絡いたします。事前に友だち追加をお願いいたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access Section -->
+  <section class="section">
+    <div class="container">
+      <h2>アクセス</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=..."
+              class="access__map"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="一色SKクラブ グラウンド所在地の地図"></iframe>
+      <div class="access__info">
+        <p><strong>住所：</strong>愛知県西尾市一色町<!-- ここを実際の住所に変更 --></p>
+        <p><strong>駐車場：</strong>あり（無料）<!-- ここを実数に変更 --></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--navy">
+    <div class="container cta">
+      <h2 class="cta__title">まずはお気軽に体験申込！</h2>
+      <a href="https://example.com/form" class="btn btn--primary" aria-label="体験お申し込みフォームへ進む">体験お申し込みフォーム</a>
+      <a href="https://line.me/R/ti/p/XXXXXXXX" class="btn btn--outline" target="_blank" rel="noopener" aria-label="公式LINEで最終確認する（新しいタブで開きます）">LINEで最終確認</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__links">
+        <a href="#privacy" class="footer__link">プライバシーポリシー</a><!-- 後で差し替え -->
+      </div>
+      <p class="footer__copyright">© 2025 一色SKクラブ</p>
+      <p>代表：伴 千寿樹</p>
+      <p style="font-size: 12px; margin-top: 8px; opacity: 0.8;">GitHub Pages想定の軽量実装</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    // ==========================================
+    // 差し替えポイント（変数）
+    // ==========================================
+    const FORM_URL = 'https://example.com/form';
+    const LINE_URL = 'https://line.me/R/ti/p/XXXXXXXX';
+    const MAP_EMBED = 'https://www.google.com/maps/embed?pb=...';
+    const SITE_TITLE = '一色SKクラブ｜体験申込';
+    const COPYRIGHT_YEAR = '2025';
+    const REPRESENTATIVE = '伴 千寿樹';
+
+    // ==========================================
+    // コピー機能（クリップボードAPI）
+    // ==========================================
+    const copyBtn = document.getElementById('copyBtn');
+    const toast = document.getElementById('toast');
+
+    copyBtn.addEventListener('click', async () => {
+      const textToCopy = '体験申込';
+
+      try {
+        // クリップボードAPIを使用（モダンブラウザ）
+        await navigator.clipboard.writeText(textToCopy);
+        showToast('コピーしました！', 'success');
+      } catch (err) {
+        // フォールバック（古いブラウザ対応）
+        const textArea = document.createElement('textarea');
+        textArea.value = textToCopy;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        try {
+          document.execCommand('copy');
+          showToast('コピーしました！', 'success');
+        } catch (fallbackErr) {
+          showToast('コピーに失敗しました。', 'error');
+        }
+
+        document.body.removeChild(textArea);
+      }
+    });
+
+    // トースト表示関数
+    function showToast(message, type = 'success') {
+      toast.textContent = message;
+      toast.className = 'toast toast--show';
+
+      if (type === 'success') {
+        toast.classList.add('toast--success');
+      } else if (type === 'error') {
+        toast.classList.add('toast--error');
+      }
+
+      // 3秒後に自動で非表示
+      setTimeout(() => {
+        toast.classList.remove('toast--show');
+      }, 3000);
+    }
+
+    // ==========================================
+    // FAQアコーディオン
+    // ==========================================
+    const faqQuestions = document.querySelectorAll('.faq__question');
+
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const isExpanded = question.getAttribute('aria-expanded') === 'true';
+        const answerId = question.getAttribute('aria-controls');
+        const answer = document.getElementById(answerId);
+
+        // トグル処理
+        question.setAttribute('aria-expanded', !isExpanded);
+
+        if (!isExpanded) {
+          answer.classList.add('faq__answer--open');
+        } else {
+          answer.classList.remove('faq__answer--open');
+        }
+      });
+
+      // キーボード操作対応（Enter / Space）
+      question.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          question.click();
+        }
+      });
+    });
+
+    // ==========================================
+    // テスト観点（コメント）
+    // ==========================================
+    // 1. 360px/390px/414pxでの見え方
+    //    - Chrome DevToolsでモバイルビューを確認
+    //    - ボタンが画面幅に収まり、タップしやすいか
+    //    - 文字が読みやすいサイズか
+    //
+    // 2. コピー機能の成功/失敗ハンドリング
+    //    - モダンブラウザ: navigator.clipboard.writeText()
+    //    - 古いブラウザ: document.execCommand('copy')
+    //    - 各環境でトーストが正しく表示されるか
+    //
+    // 3. キーボード操作でFAQが開閉できるか
+    //    - Tabキーでフォーカス移動
+    //    - Enter/Spaceキーで開閉
+    //    - aria-expanded属性が正しく更新されるか
+  </script>
+
+</body>
+</html>
