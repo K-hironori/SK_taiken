@@ -11,14 +11,14 @@
   <meta property="og:title" content="一色SKクラブ｜体験申込">
   <meta property="og:description" content="野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/">
-  <meta property="og:image" content="https://example.com/og-image.jpg">
+  <meta property="og:url" content="https://k-hironori.github.io/SK_taiken/">
+  <meta property="og:image" content="https://k-hironori.github.io/SK_taiken/6A7AD99C-1809-4AD1-BC1A-51C8BF3F7D75_1_105_c.jpeg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="一色SKクラブ｜体験申込">
   <meta name="twitter:description" content="野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。">
-  <meta name="twitter:image" content="https://example.com/og-image.jpg">
+  <meta name="twitter:image" content="https://k-hironori.github.io/SK_taiken/6A7AD99C-1809-4AD1-BC1A-51C8BF3F7D75_1_105_c.jpeg">
 
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
 
@@ -31,7 +31,7 @@
     "@type": "SportsOrganization",
     "name": "一色SKクラブ",
     "description": "愛知県の少年野球クラブ。初心者から丁寧に指導します。",
-    "url": "https://example.com/",
+    "url": "https://k-hironori.github.io/SK_taiken/",
     "representative": {
       "@type": "Person",
       "name": "伴 千寿樹"
@@ -40,27 +40,48 @@
   </script>
 
   <style>
-    /* ==========================================
-       差し替えポイント（変数）
-       - FORM_URL: 体験お申し込みフォームURL
-       - LINE_URL: 公式LINE友だち追加 or トーク起動URL
-       - MAP_EMBED: Google Map埋め込みURL
-       - REPRESENTATIVE: 代表者名
-       - COPYRIGHT_YEAR: 著作権表示年
-       ========================================== */
+    /* ==========================================================================
+       差し替えポイント
+       ========================================================================== */
+    /*
+      【必須】以下の情報を実際の内容に差し替えてください：
 
+      1. FORM_URL (JavaScript変数 773行目)
+         - 体験申込フォームのURL
+
+      2. LINE_URL (JavaScript変数 774行目, HTML 619行目, 750行目)
+         - 公式LINE友だち追加URL
+
+      3. MAP_EMBED (HTML 732行目)
+         - Google Map埋め込みURL
+
+      4. 参加概要 (HTML 634-646行目)
+         - 対象学年、実施日、時間、場所など
+
+      5. コーチ写真 (HTML 668行目)
+         - 代表の顔写真
+    */
+
+    /* ==========================================================================
+       CSS変数定義
+       ========================================================================== */
     :root {
+      /* カラーパレット */
       --color-navy: #0F2E5D;
       --color-red: #E6463B;
       --color-white: #FFFFFF;
       --color-gray-light: #F5F5F5;
       --color-gray-border: #E0E0E0;
+
+      /* スペーシング */
       --spacing-xs: 8px;
       --spacing-sm: 20px;
       --spacing-md: 28px;
       --spacing-lg: 40px;
       --spacing-xl: 56px;
       --spacing-2xl: 72px;
+
+      /* その他 */
       --border-radius: 12px;
       --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.06);
       --font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
@@ -68,6 +89,9 @@
       --transition: 0.3s ease;
     }
 
+    /* ==========================================================================
+       リセット & ベーススタイル
+       ========================================================================== */
     * {
       margin: 0;
       padding: 0;
@@ -90,7 +114,9 @@
       overflow-x: hidden;
     }
 
-    /* ========== Typography ========== */
+    /* ==========================================================================
+       タイポグラフィ
+       ========================================================================== */
     h1 {
       font-size: clamp(24px, 7vw, 32px);
       font-weight: 700;
@@ -119,18 +145,14 @@
       margin-bottom: var(--spacing-sm);
     }
 
-    /* ========== Layout ========== */
+    /* ==========================================================================
+       レイアウト
+       ========================================================================== */
     .container {
       width: 100%;
       max-width: 100%;
       margin: 0 auto;
       padding: 0 var(--spacing-sm);
-    }
-
-    @media (min-width: 430px) {
-      .container {
-        max-width: 430px;
-      }
     }
 
     .section {
@@ -146,9 +168,11 @@
       background-color: var(--color-gray-light);
     }
 
-    /* ========== Components ========== */
+    /* ==========================================================================
+       共通コンポーネント
+       ========================================================================== */
 
-    /* Card */
+    /* カード */
     .card {
       background: var(--color-white);
       border-radius: var(--border-radius);
@@ -156,7 +180,7 @@
       box-shadow: var(--shadow-light);
     }
 
-    /* Button */
+    /* ボタン */
     .btn {
       display: inline-block;
       width: 100%;
@@ -188,14 +212,6 @@
       box-shadow: 0 1px 4px rgba(230, 70, 59, 0.3);
     }
 
-    @media (hover: hover) {
-      .btn--primary:hover {
-        background-color: #d13a2f;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(230, 70, 59, 0.35);
-      }
-    }
-
     .btn--outline {
       background-color: transparent;
       color: var(--color-white);
@@ -207,13 +223,6 @@
       transform: translateY(1px);
     }
 
-    @media (hover: hover) {
-      .btn--outline:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        transform: translateY(-2px);
-      }
-    }
-
     .btn:focus-visible {
       outline: 4px solid rgba(230, 70, 59, 0.6);
       outline-offset: 3px;
@@ -223,14 +232,18 @@
       margin-top: var(--spacing-sm);
     }
 
-    /* ========== Hero Section ========== */
+    /* ==========================================================================
+       ヒーローセクション
+       ========================================================================== */
     .hero {
-      background-image: linear-gradient(rgba(15, 46, 93, 0.75), rgba(15, 46, 93, 0.85)), url('6A7AD99C-1809-4AD1-BC1A-51C8BF3F7D75_1_105_c.jpeg');
+      background-image:
+        linear-gradient(rgba(15, 46, 93, 0.75), rgba(15, 46, 93, 0.85)),
+        url('6A7AD99C-1809-4AD1-BC1A-51C8BF3F7D75_1_105_c.jpeg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       color: var(--color-white);
-      padding: var(--spacing-2xl) 0 var(--spacing-2xl) 0;
+      padding: var(--spacing-2xl) 0;
       text-align: center;
       min-height: 60vh;
       display: flex;
@@ -268,7 +281,9 @@
       padding: 0 var(--spacing-xs);
     }
 
-    /* ========== Steps Section ========== */
+    /* ==========================================================================
+       ステップセクション
+       ========================================================================== */
     .steps {
       padding: var(--spacing-2xl) 0;
     }
@@ -319,7 +334,9 @@
       border-radius: 8px;
     }
 
-    /* ========== Overview Section ========== */
+    /* ==========================================================================
+       参加概要セクション
+       ========================================================================== */
     .overview__table {
       width: 100%;
       border-collapse: collapse;
@@ -353,7 +370,9 @@
       margin-top: var(--spacing-sm);
     }
 
-    /* ========== Coach Section ========== */
+    /* ==========================================================================
+       コーチ紹介セクション
+       ========================================================================== */
     .coach-card {
       text-align: center;
     }
@@ -379,7 +398,9 @@
       color: #555;
     }
 
-    /* ========== FAQ Section ========== */
+    /* ==========================================================================
+       FAQセクション
+       ========================================================================== */
     .faq {
       margin-bottom: var(--spacing-md);
     }
@@ -414,12 +435,6 @@
 
     .faq__question:active {
       color: var(--color-red);
-    }
-
-    @media (hover: hover) {
-      .faq__question:hover {
-        color: var(--color-red);
-      }
     }
 
     .faq__question:focus-visible {
@@ -458,7 +473,9 @@
       font-size: 15px;
     }
 
-    /* ========== Access Section ========== */
+    /* ==========================================================================
+       アクセスセクション
+       ========================================================================== */
     .access__map {
       width: 100%;
       height: 320px;
@@ -477,7 +494,9 @@
       margin-bottom: 12px;
     }
 
-    /* ========== CTA Section ========== */
+    /* ==========================================================================
+       CTAセクション
+       ========================================================================== */
     .cta {
       text-align: center;
     }
@@ -486,7 +505,9 @@
       margin-bottom: var(--spacing-lg);
     }
 
-    /* ========== Footer ========== */
+    /* ==========================================================================
+       フッター
+       ========================================================================== */
     .footer {
       background-color: var(--color-navy);
       color: var(--color-white);
@@ -515,7 +536,9 @@
       opacity: 0.9;
     }
 
-    /* ========== Toast Notification ========== */
+    /* ==========================================================================
+       トースト通知
+       ========================================================================== */
     .toast {
       position: fixed;
       bottom: var(--spacing-lg);
@@ -549,7 +572,17 @@
       background-color: var(--color-red);
     }
 
-    /* ========== Responsive (larger screens) ========== */
+    /* ==========================================================================
+       レスポンシブ対応
+       ========================================================================== */
+
+    /* タブレット以上 */
+    @media (min-width: 430px) {
+      .container {
+        max-width: 430px;
+      }
+    }
+
     @media (min-width: 768px) {
       .container {
         max-width: 600px;
@@ -558,13 +591,27 @@
       .btn {
         max-width: 420px;
       }
+    }
 
-      .hero__image {
-        aspect-ratio: 2.5 / 1;
+    /* ホバー可能デバイス */
+    @media (hover: hover) {
+      .btn--primary:hover {
+        background-color: #d13a2f;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(230, 70, 59, 0.35);
+      }
+
+      .btn--outline:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .faq__question:hover {
+        color: var(--color-red);
       }
     }
 
-    /* ========== Small screens optimization ========== */
+    /* 小画面スマホ */
     @media (max-width: 374px) {
       :root {
         --spacing-sm: 16px;
@@ -590,7 +637,9 @@
 </head>
 <body>
 
-  <!-- Hero Section -->
+  <!-- ==========================================================================
+       ヒーローセクション
+       ========================================================================== -->
   <section class="hero">
     <div class="container">
       <div class="hero__content">
@@ -601,9 +650,13 @@
     </div>
   </section>
 
-  <!-- Steps Section -->
+  <!-- ==========================================================================
+       申込ステップ
+       ========================================================================== -->
   <section class="steps">
     <div class="container">
+
+      <!-- ステップ1: フォーム入力 -->
       <div class="step">
         <div class="step__number">1</div>
         <h3 class="step__title">お申し込み情報の入力</h3>
@@ -611,6 +664,7 @@
         <a href="https://example.com/form" class="btn btn--primary" aria-label="体験お申し込みフォームへ進む">体験お申し込みフォーム</a>
       </div>
 
+      <!-- ステップ2: LINE確認 -->
       <div class="step">
         <div class="step__number">2</div>
         <h3 class="step__title">公式LINEでの最終確認</h3>
@@ -619,10 +673,13 @@
         <a href="https://line.me/R/ti/p/XXXXXXXX" class="btn btn--outline" target="_blank" rel="noopener" aria-label="公式LINEで体験申込を送信する（新しいタブで開きます）">公式LINEで体験申込を送信する</a>
         <p class="step__note">※返信はコーチが順次対応します。混み合う場合はお時間をいただくことがあります。</p>
       </div>
+
     </div>
   </section>
 
-  <!-- Overview Section -->
+  <!-- ==========================================================================
+       参加概要
+       ========================================================================== -->
   <section class="section section--gray">
     <div class="container">
       <h2>参加概要</h2>
@@ -660,11 +717,14 @@
     </div>
   </section>
 
-  <!-- Coach Section -->
+  <!-- ==========================================================================
+       コーチ紹介
+       ========================================================================== -->
   <section class="section">
     <div class="container">
       <h2>コーチ紹介</h2>
       <div class="card coach-card">
+        <!-- TODO: 実際の写真に差し替え -->
         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ccircle cx='60' cy='60' r='60' fill='%23E0E0E0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23666'%3E代表写真%3C/text%3E%3C/svg%3E"
              alt="代表 伴 千寿樹の写真"
              class="coach-card__image"
@@ -677,11 +737,14 @@
     </div>
   </section>
 
-  <!-- FAQ Section -->
+  <!-- ==========================================================================
+       よくあるご質問
+       ========================================================================== -->
   <section class="section section--gray">
     <div class="container">
       <h2>よくあるご質問</h2>
       <div class="faq">
+
         <div class="faq__item">
           <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq1">
             <span>未経験でも参加できますか？</span>
@@ -721,14 +784,18 @@
             <p>雨天中止の場合は、公式LINEにて当日朝にご連絡いたします。事前に友だち追加をお願いいたします。</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Access Section -->
+  <!-- ==========================================================================
+       アクセス
+       ========================================================================== -->
   <section class="section">
     <div class="container">
       <h2>アクセス</h2>
+      <!-- TODO: Google Map埋め込みURLを設定 -->
       <iframe src="https://www.google.com/maps/embed?pb=..."
               class="access__map"
               allowfullscreen=""
@@ -742,7 +809,9 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
+  <!-- ==========================================================================
+       最終CTA
+       ========================================================================== -->
   <section class="section section--navy">
     <div class="container cta">
       <h2 class="cta__title">まずはお気軽に体験申込！</h2>
@@ -751,11 +820,13 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ==========================================================================
+       フッター
+       ========================================================================== -->
   <footer class="footer">
     <div class="container">
       <div class="footer__links">
-        <a href="#privacy" class="footer__link">プライバシーポリシー</a><!-- 後で差し替え -->
+        <a href="#privacy" class="footer__link">プライバシーポリシー</a>
       </div>
       <p class="footer__copyright">© 2025 一色SKクラブ</p>
       <p>代表：伴 千寿樹</p>
@@ -763,117 +834,112 @@
     </div>
   </footer>
 
-  <!-- Toast Notification -->
+  <!-- トースト通知 -->
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
+  <!-- ==========================================================================
+       JavaScript
+       ========================================================================== -->
   <script>
-    // ==========================================
-    // 差し替えポイント（変数）
-    // ==========================================
-    const FORM_URL = 'https://example.com/form';
-    const LINE_URL = 'https://line.me/R/ti/p/XXXXXXXX';
-    const MAP_EMBED = 'https://www.google.com/maps/embed?pb=...';
-    const SITE_TITLE = '一色SKクラブ｜体験申込';
-    const COPYRIGHT_YEAR = '2025';
-    const REPRESENTATIVE = '伴 千寿樹';
+    'use strict';
 
-    // ==========================================
-    // コピー機能（クリップボードAPI）
-    // ==========================================
+    // ==========================================================================
+    // 設定変数（差し替えポイント）
+    // ==========================================================================
+    const CONFIG = {
+      FORM_URL: 'https://example.com/form',
+      LINE_URL: 'https://line.me/R/ti/p/XXXXXXXX',
+      COPY_TEXT: '体験申込'
+    };
+
+    // ==========================================================================
+    // クリップボードコピー機能
+    // ==========================================================================
     const copyBtn = document.getElementById('copyBtn');
     const toast = document.getElementById('toast');
 
-    copyBtn.addEventListener('click', async () => {
-      const textToCopy = '体験申込';
-
-      try {
-        // クリップボードAPIを使用（モダンブラウザ）
-        await navigator.clipboard.writeText(textToCopy);
-        showToast('コピーしました！', 'success');
-      } catch (err) {
-        // フォールバック（古いブラウザ対応）
-        const textArea = document.createElement('textarea');
-        textArea.value = textToCopy;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-9999px';
-        document.body.appendChild(textArea);
-        textArea.select();
-
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
         try {
-          document.execCommand('copy');
+          // モダンブラウザ: Clipboard API
+          await navigator.clipboard.writeText(CONFIG.COPY_TEXT);
           showToast('コピーしました！', 'success');
-        } catch (fallbackErr) {
-          showToast('コピーに失敗しました。', 'error');
+        } catch (err) {
+          // フォールバック: execCommand
+          const textArea = document.createElement('textarea');
+          textArea.value = CONFIG.COPY_TEXT;
+          textArea.style.position = 'fixed';
+          textArea.style.left = '-9999px';
+          document.body.appendChild(textArea);
+          textArea.select();
+
+          try {
+            document.execCommand('copy');
+            showToast('コピーしました！', 'success');
+          } catch (fallbackErr) {
+            showToast('コピーに失敗しました。', 'error');
+          }
+
+          document.body.removeChild(textArea);
         }
+      });
+    }
 
-        document.body.removeChild(textArea);
-      }
-    });
-
-    // トースト表示関数
+    /**
+     * トースト通知を表示
+     * @param {string} message - 表示メッセージ
+     * @param {string} type - 'success' or 'error'
+     */
     function showToast(message, type = 'success') {
+      if (!toast) return;
+
       toast.textContent = message;
-      toast.className = 'toast toast--show';
+      toast.className = `toast toast--show toast--${type}`;
 
-      if (type === 'success') {
-        toast.classList.add('toast--success');
-      } else if (type === 'error') {
-        toast.classList.add('toast--error');
-      }
-
-      // 3秒後に自動で非表示
       setTimeout(() => {
         toast.classList.remove('toast--show');
       }, 3000);
     }
 
-    // ==========================================
+    // ==========================================================================
     // FAQアコーディオン
-    // ==========================================
+    // ==========================================================================
     const faqQuestions = document.querySelectorAll('.faq__question');
 
     faqQuestions.forEach(question => {
+      // クリックイベント
       question.addEventListener('click', () => {
-        const isExpanded = question.getAttribute('aria-expanded') === 'true';
-        const answerId = question.getAttribute('aria-controls');
-        const answer = document.getElementById(answerId);
-
-        // トグル処理
-        question.setAttribute('aria-expanded', !isExpanded);
-
-        if (!isExpanded) {
-          answer.classList.add('faq__answer--open');
-        } else {
-          answer.classList.remove('faq__answer--open');
-        }
+        toggleFAQ(question);
       });
 
-      // キーボード操作対応（Enter / Space）
+      // キーボード操作（Enter / Space）
       question.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          question.click();
+          toggleFAQ(question);
         }
       });
     });
 
-    // ==========================================
-    // テスト観点（コメント）
-    // ==========================================
-    // 1. 360px/390px/414pxでの見え方
-    //    - Chrome DevToolsでモバイルビューを確認
-    //    - ボタンが画面幅に収まり、タップしやすいか
-    //    - 文字が読みやすいサイズか
-    //
-    // 2. コピー機能の成功/失敗ハンドリング
-    //    - モダンブラウザ: navigator.clipboard.writeText()
-    //    - 古いブラウザ: document.execCommand('copy')
-    //    - 各環境でトーストが正しく表示されるか
-    //
-    // 3. キーボード操作でFAQが開閉できるか
-    //    - Tabキーでフォーカス移動
-    //    - Enter/Spaceキーで開閉
-    //    - aria-expanded属性が正しく更新されるか
+    /**
+     * FAQの開閉を切り替え
+     * @param {HTMLElement} question - 質問ボタン要素
+     */
+    function toggleFAQ(question) {
+      const isExpanded = question.getAttribute('aria-expanded') === 'true';
+      const answerId = question.getAttribute('aria-controls');
+      const answer = document.getElementById(answerId);
+
+      if (!answer) return;
+
+      question.setAttribute('aria-expanded', !isExpanded);
+
+      if (!isExpanded) {
+        answer.classList.add('faq__answer--open');
+      } else {
+        answer.classList.remove('faq__answer--open');
+      }
+    }
   </script>
 
 </body>
