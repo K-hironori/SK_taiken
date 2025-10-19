@@ -3,34 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="一色SKクラブの野球体験申込ページ。初心者でも安心して参加できる無料体験を実施中。まずはお気軽にお申し込みください。">
-  <meta name="keywords" content="一色SKクラブ,野球,体験申込,少年野球,初心者歓迎,愛知県">
+  <meta name="description" content="一色SKクラブは愛知県西尾市の中学軟式野球クラブです。全国の頂きを知るチームで、最高の仲間と本気で野球に向き合いませんか？随時、体験申込受付中！">
+  <meta name="keywords" content="一色SKクラブ,野球,中学軟式,クラブチーム,西尾市,体験申込,初心者歓迎,愛知県">
   <meta name="robots" content="index, follow">
 
-  <!-- OGP -->
-  <meta property="og:title" content="一色SKクラブ｜体験申込">
-  <meta property="og:description" content="野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。">
+  <meta property="og:title" content="一色SKクラブ｜西尾市の中学軟式野球チーム">
+  <meta property="og:description" content="全国の頂きを知るチームで、最高の仲間と、本気で野球に向き合う。西尾市一色町の中学軟式野球クラブ。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://k-hironori.github.io/SK_taiken/">
   <meta property="og:image" content="https://k-hironori.github.io/SK_taiken/6A7AD99C-1809-4AD1-BC1A-51C8BF3F7D75_1_105_c.jpeg">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="一色SKクラブ｜体験申込">
-  <meta name="twitter:description" content="野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。">
+  <meta name="twitter:title" content="一色SKクラブ｜西尾市の中学軟式野球チーム">
+  <meta name="twitter:description" content="全国の頂きを知るチームで、最高の仲間と、本気で野球に向き合う。西尾市一色町の中学軟式野球クラブ。">
   <meta name="twitter:image" content="https://k-hironori.github.io/SK_taiken/6A7AD99C-1809-4AD1-BC1A-51C8BF3F7D75_1_105_c.jpeg">
 
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+  <title>一色SKクラブ｜西尾市の中学軟式野球チーム</title>
 
-  <title>一色SKクラブ｜体験申込</title>
-
-  <!-- 構造化データ (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SportsOrganization",
     "name": "一色SKクラブ",
-    "description": "愛知県の少年野球クラブ。初心者から丁寧に指導します。",
+    "description": "愛知県西尾市の中学軟式野球クラブ。全国の頂きを知るチームで、礼節を重んじ、個性を尊重する指導を行います。",
     "url": "https://k-hironori.github.io/SK_taiken/",
     "representative": {
       "@type": "Person",
@@ -43,24 +39,11 @@
     /* ==========================================================================
        差し替えポイント
        ========================================================================== */
-    /*
-      【必須】以下の情報を実際の内容に差し替えてください：
-
-      1. FORM_URL (JavaScript変数 773行目)
-         - 体験申込フォームのURL
-
-      2. LINE_URL (JavaScript変数 774行目, HTML 619行目, 750行目)
-         - 公式LINE友だち追加URL
-
-      3. MAP_EMBED (HTML 732行目)
-         - Google Map埋め込みURL
-
-      4. 参加概要 (HTML 634-646行目)
-         - 対象学年、実施日、時間、場所など
-
-      5. コーチ写真 (HTML 668行目)
-         - 代表の顔写真
-    */
+    /* 【必須】以下の情報を実際の内容に差し替えてください：
+      1. FORM_URL (JavaScript変数 838行目)         - 体験申込フォームのURL
+      2. LINE_URL (JavaScript変数 839行目, HTML 626行目, 815行目)         - 公式LINE友だち追加URL
+      3. MAP_EMBED (HTML 769行目)         - Google Map埋め込みURL (※住所に基づき更新済み)
+      4. コーチ写真 (HTML 643行目)         - 代表の顔写真    */
 
     /* ==========================================================================
        CSS変数定義
@@ -118,7 +101,7 @@
        タイポグラフィ
        ========================================================================== */
     h1 {
-      font-size: clamp(24px, 7vw, 32px);
+      font-size: clamp(28px, 8vw, 40px); /* 少し大きく */
       font-weight: 700;
       line-height: 1.35;
       margin-bottom: var(--spacing-sm);
@@ -274,73 +257,41 @@
     }
 
     .hero__lead {
-      font-size: 16px;
+      font-size: 18px; /* 少し大きく */
       margin-bottom: var(--spacing-lg);
       opacity: 0.96;
       line-height: 1.8;
       padding: 0 var(--spacing-xs);
+      white-space: pre-line; /* 追加: 改行を反映 */
+      font-weight: 600; /* 少し太く */
     }
 
     /* ==========================================================================
-       ステップセクション
+       ABOUTセクション (新規追加)
        ========================================================================== */
-    .steps {
-      padding: var(--spacing-2xl) 0;
-    }
-
-    .step {
-      margin-bottom: var(--spacing-lg);
-    }
-
-    .step:last-child {
-      margin-bottom: 0;
-    }
-
-    .step__number {
-      display: inline-block;
-      background-color: var(--color-red);
-      color: var(--color-white);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
+    .slogan-wrapper {
+      margin-top: var(--spacing-lg);
+      padding: var(--spacing-md);
+      background-color: var(--color-gray-light);
+      border-radius: var(--border-radius);
       text-align: center;
-      line-height: 48px;
-      font-weight: 700;
-      font-size: 20px;
-      margin-bottom: var(--spacing-sm);
-      box-shadow: 0 2px 8px rgba(230, 70, 59, 0.25);
     }
 
-    .step__title {
-      font-size: clamp(18px, 5vw, 20px);
+    .slogan {
+      font-size: clamp(18px, 5vw, 22px);
       font-weight: 700;
-      margin-bottom: var(--spacing-sm);
+      color: var(--color-navy);
+      margin-bottom: 0;
       line-height: 1.5;
     }
 
-    .step__description {
-      margin-bottom: var(--spacing-md);
-      line-height: 1.8;
-      font-size: 15px;
-    }
-
-    .step__note {
-      font-size: 13px;
-      color: #666;
-      margin-top: var(--spacing-sm);
-      line-height: 1.6;
-      padding: var(--spacing-sm);
-      background-color: #f9f9f9;
-      border-radius: 8px;
-    }
-
     /* ==========================================================================
-       参加概要セクション
+       活動概要セクション (旧 参加概要)
        ========================================================================== */
     .overview__table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: var(--spacing-md);
+      margin-bottom: 0; /* 下に詳細を追加するためマージン削除 */
     }
 
     .overview__table th,
@@ -364,10 +315,108 @@
       line-height: 1.7;
     }
 
+    /* 追加: 会費等の詳細用 */
+    .overview__table td small {
+      font-size: 13px;
+      opacity: 0.9;
+      line-height: 1.5;
+      display: inline-block; /* 改行のため */
+      margin-top: 4px;
+    }
+    .overview__table td strong {
+      font-weight: 700;
+    }
+
+    /* 追加: 活動時間や体験案内のラッパー */
+    .activity-details {
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid var(--color-gray-border);
+    }
+    .activity-details h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: var(--spacing-sm);
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--color-red);
+    }
+    .activity-details p {
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: var(--spacing-md);
+    }
+    .activity-details__list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: var(--spacing-md);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .activity-details__list li {
+      margin-bottom: 8px;
+    }
+    .activity-details__list li strong {
+      margin-right: 4px;
+    }
+
     .overview__note {
       font-size: 14px;
       color: #666;
+      margin-top: var(--spacing-md);
+    }
+
+    /* ==========================================================================
+       ステップセクション
+       ========================================================================== */
+    .steps {
+      padding: var(--spacing-2xl) 0;
+    }
+    /* 追加: セクション見出し */
+    .steps h2 {
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .step {
+      margin-bottom: var(--spacing-lg);
+    }
+    .step:last-child {
+      margin-bottom: 0;
+    }
+    .step__number {
+      display: inline-block;
+      background-color: var(--color-red);
+      color: var(--color-white);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 48px;
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: var(--spacing-sm);
+      box-shadow: 0 2px 8px rgba(230, 70, 59, 0.25);
+    }
+    .step__title {
+      font-size: clamp(18px, 5vw, 20px);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.5;
+    }
+    .step__description {
+      margin-bottom: var(--spacing-md);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    .step__note {
+      font-size: 13px;
+      color: #666;
       margin-top: var(--spacing-sm);
+      line-height: 1.6;
+      padding: var(--spacing-sm);
+      background-color: #f9f9f9;
+      border-radius: 8px;
     }
 
     /* ==========================================================================
@@ -637,26 +686,84 @@
 </head>
 <body>
 
-  <!-- ==========================================================================
-       ヒーローセクション
-       ========================================================================== -->
   <section class="hero">
     <div class="container">
       <div class="hero__content">
-        <h1>一色SKクラブ｜体験申込ページ</h1>
-        <p class="hero__lead">野球が初めてでも大丈夫。まずは無料体験で雰囲気を感じてください。</p>
+        <h1>ISSHIKI SK CLUB</h1>
+        <p class="hero__lead">俺たちの野球は、
+ここから始まる。
+全国の頂きを知るチームで、最高の仲間と、
+本気で野球に向き合う。</p>
         <a href="https://example.com/form" class="btn btn--primary" aria-label="体験お申し込みフォームへ進む">体験お申し込みフォーム</a>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================================
-       申込ステップ
-       ========================================================================== -->
-  <section class="steps">
+  <section class="section">
     <div class="container">
+      <h2>ABOUT</h2>
+      <h3>一色SKクラブとは</h3>
+      <p>一色SKクラブは、西尾市一色町にある中学軟式野球クラブです。選手一人ひとりの個性を尊重し、楽しく野球を学べる環境作りを目指しています。地域社会との連携を大切にし、礼節を重んじることを教育理念としています。</p>
+      <div class="slogan-wrapper">
+        <p class="slogan">スローガン：「一緒に楽しく野球やろうよ!!」</p>
+      </div>
+    </div>
+  </section>
 
-      <!-- ステップ1: フォーム入力 -->
+  <section class="section section--gray">
+    <div class="container">
+      <h2>活動概要</h2>
+      <div class="card">
+        <table class="overview__table">
+          <tbody>
+            <tr>
+              <th>対象</th>
+              <td>中学生（軟式野球）</td>
+            </tr>
+            <tr>
+              <th>練習日</th>
+              <td>毎週 土・日</td>
+            </tr>
+            <tr>
+              <th>練習場所</th>
+              <td>柳原工業Baseballグランド（一色SK専用グランド）<br><small>※詳細は下の「アクセス」をご覧ください</small></td>
+            </tr>
+            <tr>
+              <th>設備</th>
+              <td>マシン3台完備、屋内練習場</td>
+            </tr>
+            <tr>
+              <th>会費</th>
+              <td><strong>月会費：</strong>5,000円 / 1人<br>
+                  <strong>入会金：</strong>5,000円 / 1人<br>
+                  <small>※同家族2人目以降は入会金無料</small></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="activity-details">
+          <h3>活動時間</h3>
+          <ul class="activity-details__list">
+            <li><strong>3月〜11月：</strong>8:00〜17:00</li>
+            <li><strong>7月〜9月：</strong>8:00〜18:00</li>
+            <li><strong>12月〜2月：</strong>8:00〜16:00</li>
+          </ul>
+
+          <h3>体験参加について</h3>
+          <p>体験参加は随時受け付けております（無料）。<br>
+             <strong>持ち物：</strong>運動できる服装、飲み物、帽子、タオル<br>
+             <small>※グローブをお持ちの方はご持参ください（貸出も可能です）。</small></p>
+        </div>
+
+        <p class="overview__note">※練習日程や場所は天候等により変更になる場合があります。体験ご希望の方は、まずはお申し込みの上、公式LINEでのご確認をお願いいたします。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">体験参加までの流れ</h2>
+
       <div class="step">
         <div class="step__number">1</div>
         <h3 class="step__title">お申し込み情報の入力</h3>
@@ -664,7 +771,6 @@
         <a href="https://example.com/form" class="btn btn--primary" aria-label="体験お申し込みフォームへ進む">体験お申し込みフォーム</a>
       </div>
 
-      <!-- ステップ2: LINE確認 -->
       <div class="step">
         <div class="step__number">2</div>
         <h3 class="step__title">公式LINEでの最終確認</h3>
@@ -677,54 +783,10 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       参加概要
-       ========================================================================== -->
-  <section class="section section--gray">
-    <div class="container">
-      <h2>参加概要</h2>
-      <div class="card">
-        <table class="overview__table">
-          <tbody>
-            <tr>
-              <th>対象</th>
-              <td>小学1年～中学3年（初心者歓迎）<!-- ここを実数に変更 --></td>
-            </tr>
-            <tr>
-              <th>実施日</th>
-              <td>毎週土曜・日曜（祝日除く）<!-- ここを実数に変更 --></td>
-            </tr>
-            <tr>
-              <th>時間</th>
-              <td>9:00〜12:00<!-- ここを実数に変更 --></td>
-            </tr>
-            <tr>
-              <th>場所</th>
-              <td>一色グラウンド（愛知県西尾市一色町）<!-- ここを実数に変更 --></td>
-            </tr>
-            <tr>
-              <th>持ち物</th>
-              <td>運動できる服装、飲み物、帽子、タオル</td>
-            </tr>
-            <tr>
-              <th>体験費</th>
-              <td>無料</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="overview__note">※日程や場所は天候により変更になる場合があります。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       コーチ紹介
-       ========================================================================== -->
   <section class="section">
     <div class="container">
       <h2>コーチ紹介</h2>
       <div class="card coach-card">
-        <!-- TODO: 実際の写真に差し替え -->
         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ccircle cx='60' cy='60' r='60' fill='%23E0E0E0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23666'%3E代表写真%3C/text%3E%3C/svg%3E"
              alt="代表 伴 千寿樹の写真"
              class="coach-card__image"
@@ -737,9 +799,6 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       よくあるご質問
-       ========================================================================== -->
   <section class="section section--gray">
     <div class="container">
       <h2>よくあるご質問</h2>
@@ -751,7 +810,7 @@
             <span class="faq__icon" aria-hidden="true">▼</span>
           </button>
           <div class="faq__answer" id="faq1">
-            <p>はい、もちろん大丈夫です。初心者のお子さまでも楽しく参加いただけるよう、コーチが基礎から丁寧に指導いたします。</p>
+            <p>はい、もちろん大丈夫です。当クラブは中学軟式野球クラブですが、初心者のお子さまでも楽しく参加いただけるよう、コーチが基礎から丁寧に指導いたします。</p>
           </div>
         </div>
 
@@ -762,6 +821,26 @@
           </button>
           <div class="faq__answer" id="faq2">
             <p>体験は原則1回までとさせていただいております。ご入会を検討される場合は、公式LINEまたは現地でコーチにお声がけください。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq5">
+            <span>小学生でも入れますか？</span>
+            <span class="faq__icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq__answer" id="faq5">
+            <p>当クラブは中学軟式野球クラブのため、対象は中学生となります。小学6年生の体験参加については、時期によって可能な場合もございますので、お気軽にご相談ください。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq6">
+            <span>会費以外に必要な費用はありますか？</span>
+            <span class="faq__icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq__answer" id="faq6">
+            <p>ユニフォーム代のほか、遠征や合宿などに伴う実費が別途必要になる場合があります。詳細はお問い合わせください。</p>
           </div>
         </div>
 
@@ -781,7 +860,7 @@
             <span class="faq__icon" aria-hidden="true">▼</span>
           </button>
           <div class="faq__answer" id="faq4">
-            <p>雨天中止の場合は、公式LINEにて当日朝にご連絡いたします。事前に友だち追加をお願いいたします。</p>
+            <p>雨天中止や練習場所変更の場合は、公式LINEにて当日朝にご連絡いたします。事前に友だち追加をお願いいたします。</p>
           </div>
         </div>
 
@@ -789,29 +868,23 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       アクセス
-       ========================================================================== -->
   <section class="section">
     <div class="container">
       <h2>アクセス</h2>
-      <!-- TODO: Google Map埋め込みURLを設定 -->
-      <iframe src="https://www.google.com/maps/embed?pb=..."
+      <iframe src="https://maps.google.com/maps?q=%E8%A5%BF%E5%B0%BE%E5%B8%82%E4%B8%80%E8%89%B2%E7%94%BA%E5%9D%82%E7%94%B0%E6%96%B0%E7%94%B0%E6%B2%9684&t=&z=15&ie=UTF8&iwloc=&output=embed"
               class="access__map"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               title="一色SKクラブ グラウンド所在地の地図"></iframe>
       <div class="access__info">
-        <p><strong>住所：</strong>愛知県西尾市一色町<!-- ここを実際の住所に変更 --></p>
-        <p><strong>駐車場：</strong>あり（無料）<!-- ここを実数に変更 --></p>
+        <p><strong>名称：</strong>柳原工業Baseballグランド（一色SK専用グランド）</p>
+        <p><strong>住所：</strong>愛知県西尾市一色町坂田新田沖84</p>
+        <p><strong>駐車場：</strong>あり（無料）</p>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================================
-       最終CTA
-       ========================================================================== -->
   <section class="section section--navy">
     <div class="container cta">
       <h2 class="cta__title">まずはお気軽に体験申込！</h2>
@@ -820,9 +893,6 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       フッター
-       ========================================================================== -->
   <footer class="footer">
     <div class="container">
       <div class="footer__links">
@@ -834,21 +904,16 @@
     </div>
   </footer>
 
-  <!-- トースト通知 -->
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- ==========================================================================
-       JavaScript
-       ========================================================================== -->
   <script>
     'use strict';
-
     // ==========================================================================
     // 設定変数（差し替えポイント）
     // ==========================================================================
     const CONFIG = {
-      FORM_URL: 'https://example.com/form',
-      LINE_URL: 'https://line.me/R/ti/p/XXXXXXXX',
+      FORM_URL: 'https://example.com/form', // TODO: 実際のフォームURLに差し替え
+      LINE_URL: 'https://line.me/R/ti/p/XXXXXXXX', // TODO: 実際のLINE URLに差し替え
       COPY_TEXT: '体験申込'
     };
 
@@ -931,7 +996,6 @@
       const answer = document.getElementById(answerId);
 
       if (!answer) return;
-
       question.setAttribute('aria-expanded', !isExpanded);
 
       if (!isExpanded) {
