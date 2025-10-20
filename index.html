@@ -450,7 +450,23 @@
     }
 
     .access__info p {
-      margin-bottom: 12px;
+      margin-bottom: var(--spacing-md);
+      padding: var(--spacing-sm);
+      background-color: var(--color-gray-light);
+      border-radius: 8px;
+    }
+
+    .access__info p strong {
+      display: block;
+      font-size: 14px;
+      color: var(--color-navy);
+      margin-bottom: 4px;
+    }
+
+    .access__info p br + * {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.7;
     }
 
     /* ==========================================================================
@@ -708,9 +724,9 @@
               referrerpolicy="no-referrer-when-downgrade"
               title="一色SKクラブ グラウンド所在地の地図"></iframe>
       <div class="access__info">
-        <p><strong>名称：</strong>柳原工業Baseballグランド（一色SK専用グランド）</p>
-        <p><strong>住所：</strong>愛知県西尾市一色町坂田新田沖84</p>
-        <p><strong>駐車場：</strong>あり</p>
+        <p><strong>【名称】</strong><br>柳原工業Baseballグランド（一色SK専用グランド）</p>
+        <p><strong>【住所】</strong><br>愛知県西尾市一色町坂田新田沖84</p>
+        <p><strong>【駐車場】</strong><br>あり</p>
       </div>
     </div>
   </section>
